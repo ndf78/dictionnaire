@@ -1,51 +1,257 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211114 11:42:28.801" rpa="false" schemaversion="2">
-<suite id="s1" name="Entourer" source="C:\Users\hdf-msi\Robot entourer\entourer.robot">
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211114 11:10:36.867" rpa="false" schemaversion="2">
+<suite id="s1" name="Dictionnaire" source="C:\Users\hdf-msi\Robot dictionnaire\dictionnaire.robot">
 <test id="s1-t1" name="Google Index">
-<kw name="Connexion au site de Google">
+<kw name="Connexion au site de Randstad">
 <kw name="Open Browser" library="Selenium2Library">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20211114 11:42:29.270" level="INFO">Opening browser 'chrome' to base url 'http://www.google.fr/'.</msg>
-<status status="PASS" starttime="20211114 11:42:29.270" endtime="20211114 11:42:31.782"/>
+<msg timestamp="20211114 11:10:37.336" level="INFO">Opening browser 'chrome' to base url 'http://www.google.fr/'.</msg>
+<status status="PASS" starttime="20211114 11:10:37.336" endtime="20211114 11:10:40.258"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>${time}</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20211114 11:42:33.789" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20211114 11:42:31.783" endtime="20211114 11:42:33.789"/>
+<msg timestamp="20211114 11:10:42.269" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20211114 11:10:40.258" endtime="20211114 11:10:42.269"/>
 </kw>
 <kw name="Click Button" library="Selenium2Library">
 <arg>//button[@id='L2AGLb']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20211114 11:42:33.789" level="INFO">Clicking button '//button[@id='L2AGLb']'.</msg>
-<status status="PASS" starttime="20211114 11:42:33.789" endtime="20211114 11:42:33.935"/>
+<msg timestamp="20211114 11:10:42.269" level="INFO">Clicking button '//button[@id='L2AGLb']'.</msg>
+<status status="PASS" starttime="20211114 11:10:42.269" endtime="20211114 11:10:42.417"/>
 </kw>
-<status status="PASS" starttime="20211114 11:42:29.270" endtime="20211114 11:42:33.936"/>
+<status status="PASS" starttime="20211114 11:10:37.336" endtime="20211114 11:10:42.418"/>
 </kw>
 <kw name="Recherche sur le site">
 <kw name="Input Text" library="Selenium2Library">
 <arg>//input[@class='gLFyf gsfi']</arg>
 <arg>${search}[2]</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20211114 11:42:33.939" level="INFO">Typing text 'brioche' into text field '//input[@class='gLFyf gsfi']'.</msg>
-<status status="PASS" starttime="20211114 11:42:33.938" endtime="20211114 11:42:34.404"/>
+<msg timestamp="20211114 11:10:42.422" level="INFO">Typing text 'brioche' into text field '//input[@class='gLFyf gsfi']'.</msg>
+<status status="PASS" starttime="20211114 11:10:42.420" endtime="20211114 11:10:42.874"/>
 </kw>
-<status status="PASS" starttime="20211114 11:42:33.937" endtime="20211114 11:42:34.405"/>
+<status status="PASS" starttime="20211114 11:10:42.419" endtime="20211114 11:10:42.874"/>
 </kw>
-<kw name="Verification que la page contient Connexion">
+<kw name="Verification que la page contient un mot de la liste @{search}">
+<for flavor="IN">
+<var>${i}</var>
+<value>@{search}</value>
+<iter>
+<var name="${i}">boulanger</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${ver}</var>
+<arg>Page should contain</arg>
+<arg>${i}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
 <kw name="Page Should Contain" library="Selenium2Library">
-<arg>Connexion</arg>
+<arg>${i}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20211114 11:42:34.650" level="INFO">Current page contains text 'Connexion'.</msg>
-<status status="PASS" starttime="20211114 11:42:34.407" endtime="20211114 11:42:34.650"/>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211114 11:10:43.633" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-35.png"&gt;&lt;img src="selenium-screenshot-35.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211114 11:10:43.149" endtime="20211114 11:10:43.633"/>
 </kw>
-<status status="PASS" starttime="20211114 11:42:34.406" endtime="20211114 11:42:34.650"/>
+<msg timestamp="20211114 11:10:43.649" level="FAIL">Page should have contained text 'boulanger' but did not.</msg>
+<status status="FAIL" starttime="20211114 11:10:42.877" endtime="20211114 11:10:43.649"/>
 </kw>
-<status status="PASS" starttime="20211114 11:42:29.270" endtime="20211114 11:42:34.650"/>
+<msg timestamp="20211114 11:10:43.649" level="INFO">${ver} = False</msg>
+<status status="PASS" starttime="20211114 11:10:42.876" endtime="20211114 11:10:43.649"/>
+</kw>
+<if>
+<branch type="IF" condition="${ver} == ${TRUE}">
+<kw name="Capture Element Screenshot" library="Selenium2Library">
+<arg>//*[contains(text(), '${i}')]</arg>
+<arg>check.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="NOT RUN" starttime="20211114 11:10:43.649" endtime="20211114 11:10:43.649"/>
+</kw>
+<status status="NOT RUN" starttime="20211114 11:10:43.649" endtime="20211114 11:10:43.649"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Noop</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211114 11:10:43.649" endtime="20211114 11:10:43.649"/>
+</kw>
+<status status="PASS" starttime="20211114 11:10:43.649" endtime="20211114 11:10:43.649"/>
+</branch>
+<status status="PASS" starttime="20211114 11:10:43.649" endtime="20211114 11:10:43.649"/>
+</if>
+<status status="PASS" starttime="20211114 11:10:42.876" endtime="20211114 11:10:43.649"/>
+</iter>
+<iter>
+<var name="${i}">pain</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${ver}</var>
+<arg>Page should contain</arg>
+<arg>${i}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>${i}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211114 11:10:43.900" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-36.png"&gt;&lt;img src="selenium-screenshot-36.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211114 11:10:43.727" endtime="20211114 11:10:43.900"/>
+</kw>
+<msg timestamp="20211114 11:10:43.900" level="FAIL">Page should have contained text 'pain' but did not.</msg>
+<status status="FAIL" starttime="20211114 11:10:43.649" endtime="20211114 11:10:43.900"/>
+</kw>
+<msg timestamp="20211114 11:10:43.900" level="INFO">${ver} = False</msg>
+<status status="PASS" starttime="20211114 11:10:43.649" endtime="20211114 11:10:43.900"/>
+</kw>
+<if>
+<branch type="IF" condition="${ver} == ${TRUE}">
+<kw name="Capture Element Screenshot" library="Selenium2Library">
+<arg>//*[contains(text(), '${i}')]</arg>
+<arg>check.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="NOT RUN" starttime="20211114 11:10:43.900" endtime="20211114 11:10:43.900"/>
+</kw>
+<status status="NOT RUN" starttime="20211114 11:10:43.900" endtime="20211114 11:10:43.900"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Noop</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211114 11:10:43.900" endtime="20211114 11:10:43.900"/>
+</kw>
+<status status="PASS" starttime="20211114 11:10:43.900" endtime="20211114 11:10:43.900"/>
+</branch>
+<status status="PASS" starttime="20211114 11:10:43.900" endtime="20211114 11:10:43.900"/>
+</if>
+<status status="PASS" starttime="20211114 11:10:43.649" endtime="20211114 11:10:43.900"/>
+</iter>
+<iter>
+<var name="${i}">brioche</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${ver}</var>
+<arg>Page should contain</arg>
+<arg>${i}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>${i}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211114 11:10:43.946" level="INFO">Current page contains text 'brioche'.</msg>
+<status status="PASS" starttime="20211114 11:10:43.900" endtime="20211114 11:10:43.947"/>
+</kw>
+<msg timestamp="20211114 11:10:43.947" level="INFO">${ver} = True</msg>
+<status status="PASS" starttime="20211114 11:10:43.900" endtime="20211114 11:10:43.947"/>
+</kw>
+<if>
+<branch type="IF" condition="${ver} == ${TRUE}">
+<kw name="Capture Element Screenshot" library="Selenium2Library">
+<arg>//*[contains(text(), '${i}')]</arg>
+<arg>check.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<msg timestamp="20211114 11:10:44.085" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="check.png"&gt;&lt;img src="check.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211114 11:10:43.948" endtime="20211114 11:10:44.085"/>
+</kw>
+<status status="PASS" starttime="20211114 11:10:43.948" endtime="20211114 11:10:44.085"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Noop</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20211114 11:10:44.085" endtime="20211114 11:10:44.086"/>
+</kw>
+<status status="NOT RUN" starttime="20211114 11:10:44.085" endtime="20211114 11:10:44.086"/>
+</branch>
+<status status="PASS" starttime="20211114 11:10:43.947" endtime="20211114 11:10:44.086"/>
+</if>
+<status status="PASS" starttime="20211114 11:10:43.900" endtime="20211114 11:10:44.086"/>
+</iter>
+<iter>
+<var name="${i}">bonbon</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${ver}</var>
+<arg>Page should contain</arg>
+<arg>${i}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>${i}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211114 11:10:44.333" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-37.png"&gt;&lt;img src="selenium-screenshot-37.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211114 11:10:44.169" endtime="20211114 11:10:44.333"/>
+</kw>
+<msg timestamp="20211114 11:10:44.333" level="FAIL">Page should have contained text 'bonbon' but did not.</msg>
+<status status="FAIL" starttime="20211114 11:10:44.087" endtime="20211114 11:10:44.333"/>
+</kw>
+<msg timestamp="20211114 11:10:44.333" level="INFO">${ver} = False</msg>
+<status status="PASS" starttime="20211114 11:10:44.086" endtime="20211114 11:10:44.333"/>
+</kw>
+<if>
+<branch type="IF" condition="${ver} == ${TRUE}">
+<kw name="Capture Element Screenshot" library="Selenium2Library">
+<arg>//*[contains(text(), '${i}')]</arg>
+<arg>check.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="NOT RUN" starttime="20211114 11:10:44.333" endtime="20211114 11:10:44.333"/>
+</kw>
+<status status="NOT RUN" starttime="20211114 11:10:44.333" endtime="20211114 11:10:44.333"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Noop</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211114 11:10:44.333" endtime="20211114 11:10:44.333"/>
+</kw>
+<status status="PASS" starttime="20211114 11:10:44.333" endtime="20211114 11:10:44.333"/>
+</branch>
+<status status="PASS" starttime="20211114 11:10:44.333" endtime="20211114 11:10:44.333"/>
+</if>
+<status status="PASS" starttime="20211114 11:10:44.086" endtime="20211114 11:10:44.333"/>
+</iter>
+<iter>
+<var name="${i}">Connexion</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${ver}</var>
+<arg>Page should contain</arg>
+<arg>${i}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>${i}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211114 11:10:44.366" level="INFO">Current page contains text 'Connexion'.</msg>
+<status status="PASS" starttime="20211114 11:10:44.333" endtime="20211114 11:10:44.366"/>
+</kw>
+<msg timestamp="20211114 11:10:44.366" level="INFO">${ver} = True</msg>
+<status status="PASS" starttime="20211114 11:10:44.333" endtime="20211114 11:10:44.366"/>
+</kw>
+<if>
+<branch type="IF" condition="${ver} == ${TRUE}">
+<kw name="Capture Element Screenshot" library="Selenium2Library">
+<arg>//*[contains(text(), '${i}')]</arg>
+<arg>check.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<msg timestamp="20211114 11:10:44.502" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="check.png"&gt;&lt;img src="check.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211114 11:10:44.366" endtime="20211114 11:10:44.503"/>
+</kw>
+<status status="PASS" starttime="20211114 11:10:44.366" endtime="20211114 11:10:44.503"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Noop</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20211114 11:10:44.503" endtime="20211114 11:10:44.504"/>
+</kw>
+<status status="NOT RUN" starttime="20211114 11:10:44.503" endtime="20211114 11:10:44.504"/>
+</branch>
+<status status="PASS" starttime="20211114 11:10:44.366" endtime="20211114 11:10:44.504"/>
+</if>
+<status status="PASS" starttime="20211114 11:10:44.333" endtime="20211114 11:10:44.504"/>
+</iter>
+<status status="PASS" starttime="20211114 11:10:42.876" endtime="20211114 11:10:44.504"/>
+</for>
+<status status="PASS" starttime="20211114 11:10:42.875" endtime="20211114 11:10:44.504"/>
+</kw>
+<status status="PASS" starttime="20211114 11:10:37.336" endtime="20211114 11:10:44.505"/>
 </test>
-<status status="PASS" starttime="20211114 11:42:28.801" endtime="20211114 11:42:34.650"/>
+<status status="PASS" starttime="20211114 11:10:36.883" endtime="20211114 11:10:44.510"/>
 </suite>
 <statistics>
 <total>
@@ -54,7 +260,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Entourer">Entourer</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Dictionnaire">Dictionnaire</stat>
 </suite>
 </statistics>
 <errors>
