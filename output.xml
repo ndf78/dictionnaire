@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211114 11:42:28.801" rpa="false" schemaversion="2">
+<suite id="s1" name="Entourer" source="C:\Users\hdf-msi\Robot entourer\entourer.robot">
+<test id="s1-t1" name="Google Index">
+<kw name="Connexion au site de Google">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211114 11:42:29.270" level="INFO">Opening browser 'chrome' to base url 'http://www.google.fr/'.</msg>
+<status status="PASS" starttime="20211114 11:42:29.270" endtime="20211114 11:42:31.782"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>${time}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211114 11:42:33.789" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20211114 11:42:31.783" endtime="20211114 11:42:33.789"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>//button[@id='L2AGLb']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211114 11:42:33.789" level="INFO">Clicking button '//button[@id='L2AGLb']'.</msg>
+<status status="PASS" starttime="20211114 11:42:33.789" endtime="20211114 11:42:33.935"/>
+</kw>
+<status status="PASS" starttime="20211114 11:42:29.270" endtime="20211114 11:42:33.936"/>
+</kw>
+<kw name="Recherche sur le site">
+<kw name="Input Text" library="Selenium2Library">
+<arg>//input[@class='gLFyf gsfi']</arg>
+<arg>${search}[2]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211114 11:42:33.939" level="INFO">Typing text 'brioche' into text field '//input[@class='gLFyf gsfi']'.</msg>
+<status status="PASS" starttime="20211114 11:42:33.938" endtime="20211114 11:42:34.404"/>
+</kw>
+<status status="PASS" starttime="20211114 11:42:33.937" endtime="20211114 11:42:34.405"/>
+</kw>
+<kw name="Verification que la page contient Connexion">
+<kw name="Page Should Contain" library="Selenium2Library">
+<arg>Connexion</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211114 11:42:34.650" level="INFO">Current page contains text 'Connexion'.</msg>
+<status status="PASS" starttime="20211114 11:42:34.407" endtime="20211114 11:42:34.650"/>
+</kw>
+<status status="PASS" starttime="20211114 11:42:34.406" endtime="20211114 11:42:34.650"/>
+</kw>
+<status status="PASS" starttime="20211114 11:42:29.270" endtime="20211114 11:42:34.650"/>
+</test>
+<status status="PASS" starttime="20211114 11:42:28.801" endtime="20211114 11:42:34.650"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Entourer">Entourer</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
