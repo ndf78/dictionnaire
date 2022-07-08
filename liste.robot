@@ -30,8 +30,16 @@ Verification que la page contient un mot de la liste @{search}
         END
     END
 
-Verification que le salaire minimum est present
-    Page should contain    salaire minimum
+Verifier element dans une liste
+
+    ${liste}    BuiltIn.Create List     item1    item2     item3     item4  item5    item6
+
+    ${result}   Run Keyword And Return Status   List Should Contain Value   ${liste}    element_a_chercher_dans_liste
+
+    IF  "${result}" == "${TRUE}"
+        Log     FONCTIONNE !!
+    ELSE
+    END
 
 Verification que le type de salaire est present
     Page should contain    type de salaire
